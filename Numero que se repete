@@ -1,0 +1,65 @@
+#include <iostream>
+
+using namespace std;
+
+
+void repete(int n, int m, int x, int &cont1);
+
+int main()
+{
+
+    int n, m,  x, cont1;
+
+    cout<<"Digite o intervalo de numeros: "<<endl;
+    cin>>n>>m;
+
+    cout<<"Agora, digite o numero que você quer ver se repetindo: "<<endl;
+    cin>>x;
+
+    repete(n, m, x, cont1);
+
+    cout<<endl;
+    cout<<"O numero "<<x<<" repete "<<cont1<<" vezes."<<endl;
+
+    return 0;
+
+}
+
+
+void repete(int n, int m, int x, int &cont1)
+{
+
+    int cont=0, b, c;
+
+    for(int i = n; i<=m; i++)
+    {
+
+        if(i <= 9)
+        {
+            if(i == x)
+            {
+                cont++;
+                cout<<i<<" ";
+            }
+        }
+        else
+        {
+            c = i;
+
+            while(c>0)
+            {
+                b = c%10;
+                if(b == x)
+                {
+                    cont++;
+                    cout<<i<<" ";
+                }
+
+                c = c/10;
+            }
+        }
+    }
+
+    cont1 = cont ;
+
+}
