@@ -1,0 +1,40 @@
+#include <iostream>
+
+using namespace std;
+
+int trib(int x);
+int main()
+{
+
+int x,y;
+
+cout<<"Digite o termo: "<<endl;
+cin>>x;
+
+
+
+for(int i=0; i<=x;i++ ){
+    y = trib(i);
+cout<<"Termo "<<i<<" eh: "<<y<<endl;
+}
+return 0;
+
+}
+
+int trib(int x){
+
+
+
+if ( x == 0){
+    return 0;
+}
+if ( x == 1){
+    return 0;
+}
+if ( x == 2){
+    return 1;
+}
+
+return trib(x-3)+trib(x-2)+trib(x-1);
+
+}
