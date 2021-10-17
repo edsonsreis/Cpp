@@ -1,0 +1,125 @@
+#include <iostream>
+#define MAX 50
+#include<cstring>
+
+using namespace std;
+
+
+void palavras_do_texto(char v[],char m[][MAX], int& cont);
+int computa_maior(char m[][MAX], int cont);
+void imprime_vetor(char m[][MAX], int maior);
+
+int main()
+{
+
+    char s[MAX], m[MAX][MAX];
+    int cont=0, maior;
+
+    cout<<"Informe uma frase"<<endl;
+    cin.getline(s, MAX);
+
+    cout<<"Palavras:"<<endl;
+    palavras_do_texto(s,m, cont);
+
+    cout<<"A frase tem "<<cont<<" palavras."<<endl;
+
+    maior = computa_maior(m, cont);
+
+    cout<<"Maior palavra: ";
+    imprime_vetor(m,maior);
+
+
+
+
+
+    return 0;
+}
+
+
+
+
+
+
+void palavras_do_texto(char v[], char m[][MAX], int& cont)
+{
+
+    char w[MAX];
+    int n=0, a=0;
+
+    while(n<strlen(v))
+
+    {
+        a=0;
+        while(v[n] != ' ' && v[n] != '\0' && v[n]>='a' && v[n]<='z' && v[n]>='A' && v[n]<='Z' && v[n]>='0' && v[n] <='9')
+        {
+            w[a] = v[n];
+            n++;
+            a++;
+        }
+        w[a]='\0';
+        cout<<w<<endl;
+
+
+            for(int j=0; j<=a; j++)
+            {
+                m[cont][j] = w[j];
+            }
+        cont++;
+        n++;
+
+    }
+
+}
+
+
+
+
+
+
+int computa_maior(char m[][MAX], int cont)
+{
+
+    int indice=0,cont2 = 0, maior = 0, j;
+
+    for(int i=0; i <=cont; i++)
+    {
+        cont2 = 0;
+        j=0;
+        while(m[i][j] != '\0')
+        {
+            cont2++;
+            j++;
+        }
+
+        if(cont2 > maior)
+        {
+            maior = cont2;
+            indice = i;
+        }
+
+
+
+    }
+
+    return indice;
+
+
+}
+
+
+
+
+void imprime_vetor(char m[][MAX], int maior)
+{
+
+    int j=0;
+
+    while(m[maior][j] != '\0')
+    {
+        cout<<m[maior][j];
+        j++;
+    }
+
+
+}
+
