@@ -1,0 +1,74 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+    int q=1, n,c,d,m,r=1, contn=0, contm=0, cont, j,l;
+
+    cout<<"Insira um numero positivo: "<<endl;
+    cin>>n;
+    j=n;
+    cout<<"Insira um numero positivo: "<<endl;
+    cin>>m;
+    l=m;
+
+    if(n>0){
+    while(q!=0){
+        c = n%10;
+        q = n/10;
+        n = n/10;
+        contn++;
+
+    }
+    }
+
+    if(m>0){
+    while(r!=0){
+        d = m%10;
+        r = m/10;
+        m = m/10;
+        contm++;
+
+    }
+    }
+
+
+q=1;
+r=1;
+
+
+if(contn >= contm){
+
+    while(q!=0){
+        c = j%10;
+        q = j/10;
+        j = q;
+
+
+        d = l%10;
+        l = l/10;
+
+
+        if(c == d){
+            cont++;
+        }else{
+        cout<<"Segundo numero nao constitui os ultimos digitos do primeiro"<<endl;
+           break;
+        }
+
+    }
+
+
+ if(cont == contm){
+    cout<<"Segundo numero constitui os ultimos digitos do primeiro"<<endl;
+ }
+
+
+ }else{
+    cout<<"Segundo numero nao constitui os ultimos digitos do primeiro"<<endl;
+ }
+
+
+}
