@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+int mdc(int x, int y);
+
+int main()
+{
+    int x,y,md;
+
+    cout<<"Digite x e y:"<<endl;
+    cin>>x>>y;
+
+    md = mdc(x,y);
+
+    cout<<"O mdc eh: "<<md<<endl;
+
+    return 0;
+}
+
+
+
+
+int mdc(int x, int y){
+
+float r;
+
+r = x%y;
+x = y;
+y = r;
+if(r == 0 ){
+    return x;
+}
+return mdc(x,y);
+
+}
