@@ -1,0 +1,31 @@
+#include <iostream>
+
+const int strmax = 51;
+using namespace std;
+
+int strlen(char s[]);
+
+int main()
+{
+
+    char s[strmax];
+    cin.getline(s, strmax);
+    cout << strlen(s) << endl;
+    return 0;
+}
+
+
+ int strlen(char s[]){
+
+ int cont=0;
+
+ while(s[cont] != '\0'){
+        cont++;
+    }
+
+return cont;
+ }
+
+
+
+
