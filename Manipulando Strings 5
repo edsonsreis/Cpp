@@ -1,0 +1,33 @@
+#include <iostream>
+#include<cstring>
+const int strmax = 100;
+using namespace std;
+
+int strcmp1(char s1[], char s2[]);
+
+int main()
+{
+
+    char s1[strmax], s2[strmax];
+    int n;
+    cin.getline(s1, strmax);
+    cin.getline(s2, strmax);
+    n = strcmp1(s1,s2);
+
+    cout << n << endl;
+    cout<<strcmp(s1,s2);
+    return 0;
+}
+
+
+int strcmp1(char s1[], char s2[])
+{
+    int i;
+    for(i=0;s1[i]!='\0'&&s1[i]==s2[i];i++);
+    return s1[i]-s2[i];
+
+}
+
+
+
+
