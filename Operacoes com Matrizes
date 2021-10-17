@@ -1,0 +1,147 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#define MAX 50
+using namespace std;
+
+
+void ler_matriz(int v[][MAX], int nl, int nc);
+void imprime_matriz(int v[][MAX], int nl, int nc);
+void multiplicacao_matriz(int v1[][MAX], int v2[][MAX], int v3[][MAX], int nl1, int nc2,int n);
+void subtracao_matriz(int v1[][MAX], int v2[][MAX], int v3[][MAX], int nl, int nc);
+void calcula_transposta(int v1[][MAX], int nl,int nc, int v2[][MAX]);
+
+int main()
+{
+
+    int v1[MAX][MAX], v2[MAX][MAX],b[MAX][MAX],c[MAX][MAX],d[MAX][MAX], e[MAX][MAX], nl, nc;
+
+    srand(time(0));
+
+    nl = (rand()% (10-2+1))+2;
+
+    cout<<"O tamanho da matriz eh: "<<nl<<endl;
+    nc = nl;
+
+
+    cout<<endl;
+
+
+    ler_matriz(v1,nl,nc);
+    cout<<"Matriz 1:"<<endl;
+    imprime_matriz(v1,nl,nc);
+
+
+    cout<<endl;
+
+
+    ler_matriz(v2,nl,nc);
+    cout<<"Matriz 2:"<<endl;
+    imprime_matriz(v2,nl,nc);
+
+
+    cout<<endl;
+
+    calcula_transposta(v2,nl,nc,b);
+
+    multiplicacao_matriz(v1,v2,d,nl,nc,nc);
+
+    calcula_transposta(d,nl,nc,e);
+
+    subtracao_matriz(e,b,c,nl,nc);
+
+    cout<<"Matriz c:"<<endl;
+    imprime_matriz(c,nl,nc);
+
+
+
+    return 0;
+
+}
+
+
+
+
+
+
+
+void ler_matriz(int v[][MAX], int nl, int nc)
+{
+
+    for(int i=0; i<nl; i++)
+    {
+        for(int j=0; j<nc; j++)
+        {
+
+            v[i][j] = (rand()%(5+5+1))-5;
+        }
+
+    }
+
+}
+
+
+void imprime_matriz(int v[][MAX], int nl, int nc)
+{
+
+    for(int i=0; i<nl; i++)
+    {
+        for(int j=0; j<nc; j++)
+        {
+            cout<<v[i][j]<< " ";
+        }
+        cout<<endl;
+
+    }
+
+}
+
+
+
+
+
+void subtracao_matriz(int v1[][MAX], int v2[][MAX], int v3[][MAX], int nl, int nc){
+
+for(int i=0; i<nl; i++){
+    for(int j=0; j<nc; j++){
+        v3[i][j] = v1[i][j]-v2[i][j];
+    }
+
+}
+}
+
+
+void calcula_transposta(int v1[][MAX], int nl,int nc, int v2[][MAX]){
+
+
+    for(int i=0; i<nl; i++)
+    {
+        for(int j=0; j<nc; j++)
+        {
+            v2[i][j] = v1[j][i];
+        }
+
+
+    }
+
+}
+
+
+
+void multiplicacao_matriz(int v1[][MAX], int v2[][MAX], int v3[][MAX], int nl1, int nc2,int n)
+{
+
+    for(int i=0; i<nl1; i++)
+    {
+        for(int j=0; j<nc2; j++)
+        {
+            v3[i][j]=0;
+            for(int k=0; k<n; k++)
+            {
+                v3[i][j] = (v1[i][k]*v2[k][j])+v3[i][j];
+            }
+        }
+
+    }
+
+}
