@@ -1,0 +1,56 @@
+#include <iostream>
+#include<cstring>
+const int strmax = 51;
+using namespace std;
+
+void substring(char s1[],char s2[], char s3[], int p);
+
+
+int main()
+{
+
+    char s1[strmax], s2[strmax], s3[strmax];
+    int  p;
+
+    cout<<"Informe uma string:"<<endl;
+    cin.getline(s1,strmax);
+
+    cout<<"Informe uma string a ser inserida:"<<endl;
+    cin.getline(s2,strmax);
+    do{
+        cout<<"Informe a posicao:"<<endl;
+        cin>>p;
+    }while(p<0 || p>strlen(s1));
+
+    cout<<"String resultante:"<<endl;
+    substring(s1,s2,s3,p);
+    cout<<s3;
+
+    return 0;
+}
+
+
+
+void substring(char s1[],char s2[],char s3[], int p )
+{
+
+    int i,j=0,tam1=strlen(s1),tam2=strlen(s2);
+
+    for(i=0; i<p; i++,j++)
+    {
+        s3[j] = s1[i];
+
+    }
+    for(i=0; i<tam2; i++,j++)
+    {
+        s3[j] = s2[i];
+
+    }
+    for(i=p; i<tam1; i++,j++)
+    {
+        s3[j] = s1[i];
+
+    }
+    s3[j]='\0';
+
+}
