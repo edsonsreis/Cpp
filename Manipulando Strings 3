@@ -1,0 +1,33 @@
+#include <iostream>
+
+const int strmax = 51;
+using namespace std;
+
+void strcpy(char s2[], char s1[]);
+
+int main()
+{
+
+    char s1[strmax], s2[strmax];
+    cin.getline(s1, strmax);
+    strcpy(s2,s1);
+
+    cout << s2 << endl;
+    return 0;
+}
+
+
+void strcpy(char s2[], char s1[]){
+
+int n=0;
+
+while(s1[n]!= '\0'){
+    s2[n] = s1[n];
+    n++;
+}
+
+s2[n+1]='\0';
+
+
+}
+
